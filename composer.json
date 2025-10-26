@@ -1,0 +1,5 @@
+{
+    "name": "custom-block/post-link-block",
+    "type": "wordpress-plugin",
+    "version": "1.0.0"
+}

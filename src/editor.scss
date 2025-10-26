@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.post-links-block-panel {
+  &__pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .components-menu-item {
+    &__button {
+      &:not(:last-child) {
+        border-bottom: 1px solid #ededed;
+      }
+    }
+
+    &__item {
+      overflow: hidden;
+      white-space: break-spaces;
+      text-align: left;
+    }
+  }
+}

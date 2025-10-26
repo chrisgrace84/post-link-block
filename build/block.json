@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "custom-block/post-link-block",
+  "version": "1.0.0",
+  "title": "Post Link",
+  "category": "theme",
+  "icon": "admin-links",
+  "description": "Output a Post link",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "searchValue": {
+      "type": "string",
+      "default": ""
+    },
+    "selectedPost": {
+      "type": "object",
+      "default": null
+    }
+  },
+  "textdomain": "post-link-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render/block.php"
+}
