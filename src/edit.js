@@ -89,11 +89,11 @@ export default function Edit({ attributes, setAttributes }) {
 
       <InspectorControls>
         <PanelBody
-          title={__(`Post Links ${blockMeta.textdomain}`, blockMeta.textdomain)}
+          title={__(`Post Link`, blockMeta.textdomain)}
           className="post-links-block-panel"
         >
           <TextControl
-            label={__('Search Post ID or Title', blockMeta.textdomain)}
+            label={__('Search Post ID (or Title)', blockMeta.textdomain)}
             value={searchValue}
             onChange={(searchValue) => setSearchValue(searchValue)}
             placeholder="Type here..."

@@ -100,14 +100,25 @@ function searchPostLinksBlockInstances($args, $assocArgs) {
 
         $whereSql = implode(' AND ', $where);
 
-        // Fetch IDs and titles only
-        $query = $wpdb->prepare("
-            SELECT ID, post_title
+        /**
+         * Fetch IDs
+         */
+        // For Optimised Performance
+        $sqlQuery = "
+            SELECT ID
             FROM $wpdb->posts
             WHERE $whereSql
-            ORDER BY post_date DESC
-        ", $params);
+        ";
 
+        // For testing
+        //$sqlQuery = "
+        //    SELECT ID, post_title, post_date
+        //    FROM $wpdb->posts
+        //    WHERE $whereSql
+        //    ORDER BY post_date DESC
+        //";
+
+        $query = $wpdb->prepare($sqlQuery, $params);
         $posts = $wpdb->get_results($query);
 
         if (empty($posts)) {
@@ -118,7 +129,12 @@ function searchPostLinksBlockInstances($args, $assocArgs) {
         $progress = \WP_CLI\Utils\make_progress_bar('Searching Posts', count($posts));
 
         foreach ($posts as $post) {
-            $postIdArray[] = "ID: {$post->ID} | Title: {$post->post_title}";
+            // For Optimised Performance
+            $postIdArray[] = $post->ID;
+
+            // Testing Only
+            // $postIdArray[] = "Date: {$post->post_date} | ID: {$post->ID} | Title: {$post->post_title}";
+
             $progress->tick();
         }
 
